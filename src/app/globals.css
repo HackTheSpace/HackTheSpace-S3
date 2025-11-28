@@ -1,8 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
+
+@property --a {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+@font-face {
+  font-family: "Ruigslay";
+  src: url("/ruigslay.regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Qurova";
+  src: url("/qurova.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @theme inline {
@@ -10,6 +31,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-ruigslay: "Ruigslay", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-qurova: "Qurova", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +47,53 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@utility text-gradient-brand {
+  background: linear-gradient(
+    to bottom,
+    #1fbcd7 40%,
+    #feb449 55%,
+    #fe5c36 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-brand {
+  background: linear-gradient(
+    to bottom,
+    #1fbcd7 40%,
+    #feb449 55%,
+    #fe5c36 100%
+  );
+}
+
+@theme {
+  @keyframes rotate {
+    to {
+      --a: 1turn;
+    }
+  }
+  @keyframes grow-up {
+    from {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    to {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+}
+
+.animate-spin-slow {
+  animation: rotate 3s linear infinite;
+}
+
+.animate-grow-up {
+  transform-origin: bottom;
+  animation: grow-up 1.5s ease-out forwards;
 }
