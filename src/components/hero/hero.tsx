@@ -12,21 +12,26 @@ const Hero = (props: Props) => {
     >
       <nav className="relative z-10 p-4">
         <img
-          src="/assets/logo/Color/logo.png"
+          src="/assets/logo/Color/logo-vertical.png"
           alt="hts-logo"
-          className="w-20 h-16"
+          className="w-fit h-20"
         />
       </nav>
-      <div className="flex flex-col justify-center items-center gap-40 mt-7">
+      <div className="flex flex-col justify-center items-center gap-20 mt:gap-36 xl:gap-40 mt-20">
         <section className="z-10 flex flex-col gap-5">
           <div
             id="hero-text"
-            className="font-ruigslay text-4xl md:text-6xl lg:text-8xl xl:text-9xl py-5 text-center text-gradient-brand"
+            className="font-ruigslay text-3xl md:text-5xl lg:text-7xl xl:text-8xl py-5 text-center text-gradient-brand"
           >
             We are going Global!
           </div>
           <div className="text-center font-poppins text-md xl:text-xl font-light text-gray-600">
-            With an immersive 36 Hrs of Online Hackathon.
+            <span className="font-bold italic">
+              Every once in a while, a new technology, an old problem, and a big
+              idea turn into an innovation.
+            </span>{" "}<br/>
+            <div className="italic w-full text-right px-14">- Dean Kamen</div> <br/>
+            What begins here doesn’t end here… it  <span className="italic">launches </span>forward, <span className="font-bold">welcome in!</span>
           </div>
         </section>
         <section
