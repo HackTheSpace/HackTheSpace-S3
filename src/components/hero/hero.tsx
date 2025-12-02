@@ -7,17 +7,17 @@ type Props = {};
 const Hero = (props: Props) => {
   return (
     <div
-      className="relative flex flex-col w-full h-screen bg-white
+      className="relative p-4 flex flex-col w-full h-dvh bg-white
     before:content-[''] before:absolute before:inset-0 before:bg-[url('/assets/Vector.svg')] before:bg-cover before:bg-center before:bg-no-repeat before:opacity-20"
     >
-      <nav className="relative z-10 p-4">
+      <nav className="absolute top-0 left-0 z-10 p-4 w-full">
         <img
           src="/assets/logo/Color/logo-vertical.png"
           alt="hts-logo"
-          className="w-fit h-7 md:h-12 lg:h-17 xl:h-20"
+          className="w-fit max-w-1/5 h-7 md:h-12 lg:h-17 xl:h-20"
         />
       </nav>
-      <div className="flex flex-col justify-between grow items-center my-25">
+      <div className="flex flex-col justify-between grow items-center mt-30 md:mt-40 mb-15 md:mb-25">
         <section className="z-10 flex flex-col gap-5">
           <div
             id="hero-text"
@@ -51,14 +51,14 @@ const Hero = (props: Props) => {
           Website Loading Soon......
         </div>
       </div>
-      <div className="absolute bottom-0 left-2 w-[30%] h-fit animate-grow-up">
+      <div className="absolute bottom-0 left-2 w-[30%] h-fit max-h-1/5 md:max-h-1/2 animate-grow-up">
         <img
           src="/assets/side-line.svg"
           className="w-full h-full scale-x-[-1]"
           alt="hero-decoration"
         />
       </div>
-      <div className="absolute bottom-0 right-2 w-[30%] h-fit animate-grow-up">
+      <div className="absolute bottom-0 right-2 w-[30%] h-fit max-h-1/5 md:max-h-1/2 animate-grow-up">
         <img
           src="/assets/side-line.svg"
           className="w-full h-full"
