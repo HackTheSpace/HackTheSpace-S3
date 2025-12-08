@@ -62,6 +62,19 @@ body {
   color: transparent;
 }
 
+@utility text-gradient-purple {
+  background: linear-gradient(
+    to bottom,
+    #B741DD 40%,
+    #7D00F2 55%,
+    #4D00C4 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
 @utility bg-gradient-brand {
   background: linear-gradient(
     to bottom,
