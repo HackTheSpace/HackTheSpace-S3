@@ -1,6 +1,6 @@
 "use client"
-import GradiantButton from "./buttons/gradiant-button";
-import AnimatedButton from "./buttons/animated-button";
+import GradiantButton from "../buttons/gradiant-button";
+import AnimatedButton from "../buttons/animated-button";
 
 type Props = {};
 

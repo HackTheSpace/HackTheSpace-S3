@@ -1,0 +1,110 @@
+import React, { useRef } from 'react'
+import { useGLTF, useAnimations } from '@react-three/drei'
+
+export default function Pyramid(props:any) {
+  const group = useRef(null)
+  const { nodes, materials, animations } = useGLTF('/assets/3d/pyramid.glb')
+  const { actions } = useAnimations(animations, group)
+  return (
+    <group {...props} dispose={null}>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.UFO_4_Pyramid_Cube.geometry}
+        material={materials.Metal_Tiles_02}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.UFO_4_Pyramid001_Cube001.geometry}
+        material={materials.Black_swirl_marble}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.UFO_4_Pyramid003_Cube003.geometry}
+        material={materials.Beam_Periferi_Light}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.UFO_4_Pyramid003_RPanel_temp010.geometry}
+        material={materials.Black_and_Red_Patterned__Glass}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle003.geometry}
+        material={materials.Metal_Tiles_02}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle001_Circle004.geometry}
+        material={materials.Metal_Tiles_02}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle002_Circle005.geometry}
+        material={materials.Metal_Tiles_02}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle004_Circle006.geometry}
+        material={materials.Metal_Tiles_02}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle005_Circle007.geometry}
+        material={materials.Metal_Tiles_02}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle006_Circle008.geometry}
+        material={materials.Metal_Tiles_02}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cube_Cube004.geometry}
+        material={materials.Automotive_led_lights}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.UFO_4_Pyramid005_Cube006.geometry}
+        material={materials.Automotive_led_lights}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cube001_Cube008_1.geometry}
+        material={materials.Automotive_led_lights}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cube001_Cube008_2.geometry}
+        material={materials.Black_and_Red_Patterned__Glass}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cube002_Cube010_1.geometry}
+        material={materials.Automotive_led_lights}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cube002_Cube010_2.geometry}
+        material={materials.Black_and_Red_Patterned__Glass}
+      />
+    </group>
+  )
+}
+
+useGLTF.preload('/assets/3d/pyramid.glb')
