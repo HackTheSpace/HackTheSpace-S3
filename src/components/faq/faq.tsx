@@ -40,12 +40,12 @@ const Faq = () => {
 
       {/* FAQ Grid */}
       <div className="w-full flex justify-center mt-10 md:mt-20">
-        <div className="z-10 w-full max-w-6xl px-4 flex flex-wrap gap-x-20 gap-y-6">
+        <div className="z-10 w-full max-w-[70%] px-4 flex flex-wrap gap-x-20 gap-y-6">
           {faqData.map((faq, index) => (
             <div key={index} className="w-full md:w-[calc(50%-2.5rem)]">
               <div className="p-px rounded-lg bg-gradient-brand">
                 <details className="group rounded-lg bg-white overflow-hidden transition-all duration-300 [&[open]_summary_svg]:rotate-180 font-poppins">
-                  <summary className="flex items-center justify-between cursor-pointer p-1 md:p-2 list-none outline-none [&::-webkit-details-marker]:hidden">
+                  <summary className="flex items-center justify-between cursor-pointer p-1 px-2 md:p-2 md:px-4 list-none outline-none [&::-webkit-details-marker]:hidden">
                     <span className="text-md md:text-lg font-medium text-black/90 group-hover:text-black transition-colors">
                       {faq.question}
                     </span>
