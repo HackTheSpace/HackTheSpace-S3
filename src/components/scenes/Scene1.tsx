@@ -4,7 +4,7 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, Center, Html } from "@react-three/drei";
-import { Helmet } from "../3d/helmet";
+// import { Helmet } from "../3d/helmet";
 
 function Loader() {
   return (
@@ -36,7 +36,7 @@ export default function Scene() {
           <Environment preset="city" />
           <Suspense fallback={<Loader />}>
               <Center>
-                <Helmet scale={12} />
+                {/* <Helmet scale={12} /> */}
               </Center>
           </Suspense>
           <OrbitControls enableZoom={false} />
