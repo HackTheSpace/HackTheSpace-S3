@@ -23,7 +23,7 @@ const Hero = (props: Props) => {
             id="hero-text"
             className="font-ruigslay text-3xl md:text-5xl lg:text-7xl xl:text-8xl py-5 text-center text-gradient-brand"
           >
-            We are going Global!
+            We're Coming Soon!
           </div>
           <div className="text-center font-poppins text-sm md:text-md xl:text-xl font-light text-gray-600">
             <span className="font-bold italic">
