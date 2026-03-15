@@ -7,6 +7,7 @@ import Prizes from "../prizes/prizes";
 import Faq from "../faq/faq";
 import Scene from "../scenes/Scene1";
 import Footer from "../footer/footer";
+import Sponsors from "../sponsors/sponsors";
 
 type Props = {};
 
@@ -17,6 +18,7 @@ const Design1 = (props: Props) => {
       <About />
       <Tracks />
       <PastEvents />
+      <Sponsors />
       <Prizes />
       <Faq />
       <Footer />

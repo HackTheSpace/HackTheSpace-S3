@@ -40,7 +40,7 @@ const Faq = () => {
 
       {/* FAQ Grid */}
       <div className="w-full flex justify-center mt-10 md:mt-20">
-        <div className="z-10 w-full max-w-[70%] px-4 flex flex-wrap gap-x-20 gap-y-6">
+        <div className="z-10 w-full max-w-[90%] md:max-w-[70%] px-4 flex flex-wrap gap-x-20 gap-y-6">
           {faqData.map((faq, index) => (
             <div key={index} className="w-full md:w-[calc(50%-2.5rem)]">
               <div className="p-px rounded-lg bg-gradient-brand">

@@ -8,14 +8,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const tracks = [
   {
-    title: "Generative AI & Machine Learning",
-    icon: "/assets/tracks/ai-ml.svg",
-    color: "#FF9F1C",
-  },
-  {
     title: "Open Innovation",
     icon: "/assets/tracks/idea.svg",
     color: "#2EC4B6",
+  },
+  {
+    title: "Generative AI & Machine Learning",
+    icon: "/assets/tracks/ai-ml.svg",
+    color: "#FF9F1C",
   },
   {
     title: "Security & Audits",
@@ -23,14 +23,14 @@ const tracks = [
     color: "#E71D36",
   },
   {
-    title: "Internet of Things",
-    icon: "/assets/tracks/iot.svg",
-    color: "#C77DFF",
-  },
-  {
     title: "Augmented & Virtual Reality",
     icon: "/assets/tracks/ai-ml.svg",
     color: "#8338EC",
+  },
+  {
+    title: "Internet of Things",
+    icon: "/assets/tracks/iot.svg",
+    color: "#C77DFF",
   },
   {
     title: "Blockchain & Crypto",
@@ -51,73 +51,89 @@ const Tracks = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
-      const radius = 370;
+    const mm = gsap.matchMedia();
 
-      // ✅ Set initial state immediately (prevents flicker)
-      cardsRef.current.forEach((card) => {
-        if (!card) return;
-        gsap.set(card, {
-          x: 0,
-          y: 0,
-          opacity: 0,
-          scale: 0.5,
-          xPercent: -50,
-          yPercent: -50,
-        });
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=1500",
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
-
-      cardsRef.current.forEach((card, index) => {
-        if (!card) return;
-
-        const finalAngle = index * (360 / tracks.length) - 90;
-
-        const proxy = {
-          radius: 0,
-          angle: finalAngle + 90,
-          opacity: 0,
-          scale: 0.5,
+    mm.add(
+      {
+        isMobile: "(max-width: 639px)",
+        isTablet: "(min-width: 640px) and (max-width: 1023px)",
+        isDesktop: "(min-width: 1024px)",
+      },
+      (context) => {
+        let { isMobile, isTablet } = context.conditions as {
+          isMobile: boolean;
+          isTablet: boolean;
+          isDesktop: boolean;
         };
 
-        tl.to(
-          proxy,
-          {
-            radius,
-            angle: finalAngle,
-            opacity: 1,
-            scale: 1,
-            ease: "power2.out",
-            duration: 1,
-            onUpdate: () => {
-              const rad = (proxy.angle * Math.PI) / 180;
-              const x = Math.cos(rad) * proxy.radius;
-              const y = Math.sin(rad) * proxy.radius;
+        const radius = isMobile ? 140 : isTablet ? 250 : 370;
+        const targetScale = isMobile ? 0.6 : isTablet ? 0.8 : 1;
 
-              gsap.set(card, {
-                x,
-                y,
-                opacity: proxy.opacity,
-                scale: proxy.scale,
-              });
-            },
+        // ✅ Set initial state immediately (prevents flicker)
+        cardsRef.current.forEach((card) => {
+          if (!card) return;
+          gsap.set(card, {
+            x: 0,
+            y: 0,
+            opacity: 0,
+            scale: 0.2,
+            xPercent: -50,
+            yPercent: -50,
+          });
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "+=1500",
+            scrub: true,
+            pin: true,
+            anticipatePin: 1,
           },
-          0
-        );
-      });
-    }, containerRef);
+        });
 
-    return () => ctx.revert();
+        cardsRef.current.forEach((card, index) => {
+          if (!card) return;
+
+          const finalAngle = index * (360 / tracks.length) - 90;
+
+          const proxy = {
+            radius: 0,
+            angle: finalAngle + 90,
+            opacity: 0,
+            scale: 0.2, // Start smaller so they smoothly grow
+          };
+
+          tl.to(
+            proxy,
+            {
+              radius,
+              angle: finalAngle,
+              opacity: 1,
+              scale: targetScale,
+              ease: "power2.out",
+              duration: 1,
+              onUpdate: () => {
+                const rad = (proxy.angle * Math.PI) / 180;
+                const x = Math.cos(rad) * proxy.radius;
+                const y = Math.sin(rad) * proxy.radius;
+
+                gsap.set(card, {
+                  x,
+                  y,
+                  opacity: proxy.opacity,
+                  scale: proxy.scale,
+                });
+              },
+            },
+            0
+          );
+        });
+      }
+    );
+
+    return () => mm.revert();
   }, []);
 
   return (
