@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Atom(props) {
+export function Atom(props:any) {
   const { nodes, materials } = useGLTF('/assets/3d/primitive_carbon_atom.glb')
   return (
     <group {...props} dispose={null}>
