@@ -1,4 +1,3 @@
-import React from "react";
 import Content1 from "../common/content-1";
 import Image from "next/image";
 
