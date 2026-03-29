@@ -26,6 +26,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Russo One";
+  src: url("/RussoOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -34,6 +41,7 @@
   --font-ruigslay: "Ruigslay", sans-serif;
   --font-poppins: "Poppins", sans-serif;
   --font-qurova: "Qurova", sans-serif;
+  --font-russo: "Russo One", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -65,9 +73,9 @@ body {
 @utility text-gradient-purple {
   background: linear-gradient(
     to bottom,
-    #B741DD 40%,
-    #7D00F2 55%,
-    #4D00C4 100%
+    #b741dd 40%,
+    #7d00f2 55%,
+    #4d00c4 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -147,4 +155,149 @@ body {
 .animate-tunnel-rotate {
   animation: tunnel-rotate 8s linear infinite;
   transform-origin: center;
+}
+
+/* ─────────────────────────────────────────────
+   GlassCard — liquid glass DISPLACEMENT effect
+   Warps the background like a real glass lens,
+   using an SVG feTurbulence + feDisplacementMap
+   filter applied via backdrop-filter.
+───────────────────────────────────────────── */
+.glass-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Very thin tinted glass layer on top of the displacement */
+  background: rgba(255, 255, 255, 0.08);
+
+  /* Glassy border with subtle prismatic edge */
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+
+  /* Lift shadow + inner edge highlights */
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.22),
+    0 2px 8px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.08);
+
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.glass-card:hover {
+  box-shadow:
+    0 14px 50px rgba(0, 0, 0, 0.28),
+    0 4px 14px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Displacement layer ──────────────────────
+   This full-bleed absolute element sits behind
+   the content and applies the SVG displacement
+   filter to whatever is behind the card via
+   backdrop-filter, faking real glass refraction.
+──────────────────────────────────────────── */
+.glass-card__disp {
+  position: absolute;
+  inset: 0;
+  /* Apply the per-instance SVG displacement filter to the backdrop */
+  backdrop-filter: var(--glass-filter-id) blur(0.5px);
+  -webkit-backdrop-filter: var(--glass-filter-id) blur(0.5px);
+  /* Slight brightness/contrast to enhance the lens feel */
+  filter: brightness(1.04) contrast(1.02);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Specular top-edge streak — the glassy refraction highlight */
+.glass-card__streak {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.75) 30%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.75) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Convex inner glow — gives the "thick glass" depth illusion */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bottom edge prismatic shadow for refractive depth */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-card__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ─── Register button arrow circle ─── */
+.register-arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #1fbcd7 0%, #feb449 60%, #fe5c36 100%);
+  box-shadow: 0 2px 10px rgba(254, 92, 54, 0.35);
+  flex-shrink: 0;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.glass-card:hover .register-arrow-btn {
+  transform: scale(1.08) rotate(4deg);
+  box-shadow: 0 4px 16px rgba(254, 92, 54, 0.5);
 }

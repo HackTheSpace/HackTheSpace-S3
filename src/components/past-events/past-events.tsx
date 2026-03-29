@@ -69,9 +69,9 @@ const PastEvents = () => {
       </div>
 
       {/* Main Content Container - Rotated */}
-      <div className="relative w-full flex flex-col items-center justify-center mt-4 sm:mt-10 overflow-hidden">
+      <div className="relative w-full flex flex-col h-full items-center justify-center mt-4 sm:mt-10">
         {/* Background Text Marquee */}
-        <div className="rotate-[4deg] md:rotate-6 flex items-center justify-center opacity-90 z-0 scale-[1.05] md:scale-110 w-[150%] md:w-[120%]">
+        <div className="rotate-[4deg] md:rotate-2 flex items-center justify-center opacity-90 z-0 scale-[1.05] md:scale-110 w-[150%] md:w-[120%]">
           <BlackMarquee direction="left" highlightColor="#1FBCD7" />
         </div>
         {/* Row 1 */}
@@ -101,7 +101,7 @@ const PastEvents = () => {
             </GlassMarquee>
           </div>
         </div>
-        <div className="rotate-[4deg] md:rotate-6 flex items-center justify-center opacity-90 z-8 scale-[1.05] md:scale-110 w-[150%] md:w-[120%] mt-4 sm:mt-0">
+        <div className="rotate-[4deg] md:rotate-4 flex items-center justify-center opacity-90 z-8 scale-[1.05] md:scale-110 w-[150%] md:w-[120%] mt-4 sm:mt-0">
           <BlackMarquee direction="left" highlightColor="#1FBCD7" />
         </div>
       </div>
