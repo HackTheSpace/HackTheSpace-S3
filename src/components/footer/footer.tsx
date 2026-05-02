@@ -14,7 +14,7 @@ const Footer = () => {
         id="contact"
         className="w-full bg-white text-black pt-16 pb-8 border-t border-gray-100"
       >
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 text-center md:text-left">
           {/* Logo Column */}
           <div className="flex flex-col items-center md:items-start space-y-4">
             <div className="w-32 md:w-40">
@@ -24,6 +24,33 @@ const Footer = () => {
                 className="w-full h-auto object-contain"
               />
             </div>
+          </div>
+
+          {/* Previous Seasons Column */}
+          <div className="flex flex-col space-y-4">
+            <h3 className="text-xl font-bold font-qurova bg-clip-text text-transparent text-gradient-brand">
+              Previous Seasons
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="https://s1.hackthespace.co"
+                  target="_blank"
+                  className="text-gray-300 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-purple-500 underline-offset-4"
+                >
+                  Season 1
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://s2.hackthespace.co"
+                  target="_blank"
+                  className="text-gray-300 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-purple-500 underline-offset-4"
+                >
+                  Season 2
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Documents Column */}
@@ -109,8 +136,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="w-full bg-[#030014] py-6 border-t border-white/5">
         <p className="text-center text-gray-500 text-sm font-medium">
-          Made with <span className="text-red-500 animate-pulse">❤️</span> by
-          the Team HackTheSpace
+          Made with <span className="text-red-500 animate-pulse">❤️</span> HackTheSpace
         </p>
       </div>
     </>

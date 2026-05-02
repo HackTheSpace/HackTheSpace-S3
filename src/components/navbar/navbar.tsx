@@ -166,28 +166,6 @@ export default function Navbar() {
                 HackTheSpace
               </span>
             </div>
-            {/* Close button */}
-            <button
-              id="navbar-sidebar-close"
-              onClick={() => setIsOpen(false)}
-              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
-              aria-label="Close menu"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2 2L14 14M14 2L2 14"
-                  stroke="#374151"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
           </div>
 
           {/* Nav links */}

@@ -13,23 +13,29 @@ export default function Scene() {
         <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-no-repeat bg-center" />
 
         {/* Text overlays */}
-        <h1 className="absolute top-46 left-0 text-5xl md:text-9xl lg:text-[16rem] uppercase text-gradient-brand leading-none font-russo">
+        <h1 className="absolute top-24 sm:top-32 md:top-40 lg:top-44 xl:top-46 -left-10 sm:-left-5 md:left-0 text-[7rem] sm:text-[9rem] md:text-[11rem] lg:text-[14rem] xl:text-[16rem] uppercase text-gradient-brand leading-none font-russo">
           Hack
         </h1>
-        <h1 className="absolute bottom-80 right-0 text-5xl md:text-9xl lg:text-[14rem] uppercase text-gradient-brand leading-none font-russo">
+        <h1 className="absolute top-50 sm:top-56 -right-10 sm:-right-5 text-[7rem] sm:text-[9rem] md:hidden uppercase text-gradient-brand leading-none font-russo">
+          The
+        </h1>
+        <h1 className="absolute top-[40%] sm:top-[42%] md:top-auto -left-10 sm:-left-5 md:left-auto md:right-0 md:bottom-60 lg:bottom-70 xl:bottom-80 text-[7rem] sm:text-[9rem] md:text-[11rem] lg:text-[12rem] xl:text-[14rem] uppercase text-gradient-brand leading-none font-russo">
           Space
+        </h1>
+        <h1 className="absolute bottom-80 sm:bottom-72 right-0 sm:right-5 text-[5rem] sm:text-[7rem] md:hidden uppercase text-gradient-brand leading-none font-russo">
+          3.0
         </h1>
 
         <Link
-          href="/register"
+          href="https://forms.gle/PhjrTQ9jDwWiYcUS9"
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute top-60 left-110 z-21"
+          className="absolute w-max z-21 top-[58%] sm:top-[60%] md:top-50 lg:top-56 xl:top-60 left-0 right-0 mx-auto md:right-auto md:mx-0 md:left-[15%] lg:left-[22%] xl:left-110"
           style={{ animation: "bounce-btn 2.4s ease-in-out infinite" }}
         >
-          <GlassCard radius="2xl" className="px-6 py-5 gap-4">
+          <GlassCard radius="2xl" className="p-3 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-2 sm:gap-3 lg:gap-4">
             <div className="bg-white flex items-center py-2 px-4 rounded-full">
-              <span className="text-2xl font-semibold text-gray-800 whitespace-nowrap font-poppins pr-2">
+              <span className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 whitespace-nowrap font-poppins pr-2">
                 Register Now!
               </span>
               {/* Brand gradient circle with arrow */}
@@ -42,15 +48,15 @@ export default function Scene() {
 
         {/* Join Discord */}
         <Link
-          href="https://discord.gg/"
+          href="https://discord.gg/FJKTSgdxPX"
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute bottom-70 right-95 z-21"
+          className="absolute w-max z-21 top-[70%] sm:top-[72%] md:top-auto left-0 right-0 mx-auto md:left-auto md:mx-0 md:bottom-50 lg:bottom-60 xl:bottom-70 md:right-[15%] lg:right-[22%] xl:right-95"
           style={{ animation: "bounce-btn 2.4s ease-in-out 0.4s infinite" }}
         >
-          <GlassCard radius="2xl" className="px-6 py-5 gap-4">
+          <GlassCard radius="2xl" className="p-3 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-2 sm:gap-3 lg:gap-4">
             <div className="bg-white flex items-center py-2 px-4 rounded-full">
-              <span className="text-2xl font-semibold text-gray-800 whitespace-nowrap font-poppins pr-2">
+              <span className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 whitespace-nowrap font-poppins pr-2">
                 Join Discord
               </span>
               <span className="register-arrow-btn" aria-hidden="true">
@@ -64,7 +70,7 @@ export default function Scene() {
         <img
           src="/assets/glass-astro.svg"
           alt="Glass Astro"
-          className="absolute bottom-0 md:top-0 left-1/2 -translate-x-1/2 w-[150%] md:w-[72%] max-w-full pointer-events-none select-none z-20"
+          className="absolute bottom-0 md:top-0 left-1/2 -translate-x-1/2 w-[170%] sm:w-[140%] md:w-[110%] lg:w-[80%] xl:w-[72%] max-w-none pointer-events-none select-none z-20"
         />
 
         <div
@@ -105,11 +111,11 @@ export default function Scene() {
             <span key={gi} className="flex items-center shrink-0">
               {Array.from({ length: 8 }).map((_, i) => (
                 <span key={i} className="flex items-center gap-5 px-5">
-                  <span className="text-black/80 text-sm md:text-base font-qurova font-medium tracking-widest uppercase">
+                  <span className="text-black/80 text-sm sm:text-base md:text-lg lg:text-xl font-qurova font-medium tracking-widest uppercase">
                     Hackthespace
                   </span>
                   <span
-                    className="text-sm md:text-base font-poppins font-bold tracking-widest uppercase"
+                    className="text-sm sm:text-base md:text-lg lg:text-xl font-poppins font-bold tracking-widest uppercase"
                     style={{
                       background: "linear-gradient(90deg,#f97316,#14b8a6)",
                       WebkitBackgroundClip: "text",

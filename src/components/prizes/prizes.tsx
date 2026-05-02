@@ -84,20 +84,20 @@ const Prizes = () => {
       <div className="relative z-10 flex flex-row items-end justify-center gap-2 sm:gap-4 md:gap-8 lg:gap-12 mt-0 md:mt-56 px-2">
 
         {/* 2nd Prize */}
-        <PrizeCard place="2nd Prize" amount="INR 20K" color="#1fbcd7" />
+        <PrizeCard place="2nd Prize" amount="Revealed Soon!" color="#1fbcd7" />
 
         {/* 1st Prize (lifted up) */}
         <div className="relative -translate-y-6 sm:-translate-y-16 md:-translate-y-32 lg:-translate-y-44">
           <PrizeCard
             place="1st Prize"
-            amount="INR 40K"
+            amount="Revealed Soon!"
             isMain={true}
             color="#feb449"
           />
         </div>
 
         {/* 3rd Prize */}
-        <PrizeCard place="3rd Prize" amount="INR 10K" color="#fe5c36" />
+        <PrizeCard place="3rd Prize" amount="Revealed Soon!" color="#fe5c36" />
         
       </div>
     </section>

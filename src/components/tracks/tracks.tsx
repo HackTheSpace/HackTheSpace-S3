@@ -68,15 +68,25 @@ const Tracks = () => {
 
         const radius = isMobile ? 140 : isTablet ? 250 : 370;
         const targetScale = isMobile ? 0.6 : isTablet ? 0.8 : 1;
+        
+        const startRadius = radius * 0.4;
+        const startScale = targetScale * 0.6;
+        const startOpacity = 0.6;
 
         // ✅ Set initial state immediately (prevents flicker)
-        cardsRef.current.forEach((card) => {
+        cardsRef.current.forEach((card, index) => {
           if (!card) return;
+          
+          const initialAngle = index * (360 / tracks.length);
+          const rad = (initialAngle * Math.PI) / 180;
+          const x = Math.cos(rad) * startRadius;
+          const y = Math.sin(rad) * startRadius;
+
           gsap.set(card, {
-            x: 0,
-            y: 0,
-            opacity: 0,
-            scale: 0.2,
+            x,
+            y,
+            opacity: startOpacity,
+            scale: startScale,
             xPercent: -50,
             yPercent: -50,
           });
@@ -99,10 +109,10 @@ const Tracks = () => {
           const finalAngle = index * (360 / tracks.length) - 90;
 
           const proxy = {
-            radius: 0,
+            radius: startRadius,
             angle: finalAngle + 90,
-            opacity: 0,
-            scale: 0.2, // Start smaller so they smoothly grow
+            opacity: startOpacity,
+            scale: startScale, // Start smaller so they smoothly grow
           };
 
           tl.to(
