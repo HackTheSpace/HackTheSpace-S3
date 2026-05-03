@@ -12,7 +12,10 @@ const PastEvents = () => {
     "/assets/prev-gallary/HackTheSpaceS2 (614).jpg",
     "/assets/prev-gallary/HackTheSpaceS2 (648).jpg",
     "/assets/prev-gallary/HackTheSpaceS2 (662).jpg",
-    "/assets/prev-gallary/HackTheSpaceS2 (768).jpg",
+    "/assets/prev-gallary/HackTheSpaceS2 (768).jpg"
+  ];
+
+  const images2 = [
     "/assets/prev-gallary/HackTheSpaceS2 (772).jpg",
     "/assets/prev-gallary/HackTheSpaceS2 (785).jpg",
     "/assets/prev-gallary/HackTheSpaceS2 (920).jpg",
@@ -22,7 +25,7 @@ const PastEvents = () => {
     "/assets/prev-gallary/ShutterStories-541.jpg",
     "/assets/prev-gallary/the_shutterstories-1.jpg",
     "/assets/prev-gallary/the_shutterstories-3.jpg",
-  ];
+  ]
 
   // Helper to render image cards
   const renderImageCards = (items: string[],color?:string) => {
@@ -78,7 +81,7 @@ const PastEvents = () => {
 
       {/* Title Section */}
       <div className="z-40 mb-10 md:mb-20">
-        <Title title="PAST EVENTS" />
+        <Title title="GLIMPSES" />
       </div>
 
       {/* Main Content Container - Rotated */}
@@ -111,7 +114,7 @@ const PastEvents = () => {
           {/* Foreground Image Marquee */}
           <div className="z-10 w-full">
             <GlassMarquee direction="right" className="overflow-visible! py-2 sm:py-4" speed="150s">
-              {renderImageCards(images)}
+              {renderImageCards(images2)}
             </GlassMarquee>
           </div>
         </div>

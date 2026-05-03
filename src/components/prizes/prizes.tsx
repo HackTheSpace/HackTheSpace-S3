@@ -78,26 +78,39 @@ const Prizes = () => {
 
       <div className="md:mt-0 mb-20 md:mb-0">
         <Title title="PRIZES" />
+      <p className="font-poppins text-sm md:text-base lg:text-base text-gray-700 font-light leading-relaxed max-w-8xl">
+          Top teams walk away with <span className="font-bold">real cash prizes</span> and <span className="font-bold">curated swag</span> - because your hard work deserves more than just a certificate.
+      </p>
       </div>
 
+      
       {/* Cards Container */}
       <div className="relative z-10 flex flex-row items-end justify-center gap-2 sm:gap-4 md:gap-8 lg:gap-12 mt-0 md:mt-56 px-2">
 
         {/* 2nd Prize */}
-        <PrizeCard place="2nd Prize" amount="Revealed Soon!" color="#1fbcd7" />
+        <div className="relative -translate-y-3 sm:-translate-y-8 md:-translate-y-16 lg:-translate-y-22 z-0">
+          <div className="animate-subtle-jump" style={{ animationDelay: '0.2s' }}>
+            <PrizeCard place="2nd Prize" amount="Revealed Soon!" color="#1fbcd7" />
+          </div>
+        </div>
 
         {/* 1st Prize (lifted up) */}
-        <div className="relative -translate-y-6 sm:-translate-y-16 md:-translate-y-32 lg:-translate-y-44">
-          <PrizeCard
-            place="1st Prize"
-            amount="Revealed Soon!"
-            isMain={true}
-            color="#feb449"
-          />
+        <div className="relative -translate-y-6 sm:-translate-y-16 md:-translate-y-32 lg:-translate-y-44 z-10">
+          <div className="animate-subtle-jump" style={{ animationDelay: '0s' }}>
+            <PrizeCard
+              place="1st Prize"
+              amount="Revealed Soon!"
+              color="#feb449"
+            />
+          </div>
         </div>
 
         {/* 3rd Prize */}
-        <PrizeCard place="3rd Prize" amount="Revealed Soon!" color="#fe5c36" />
+        <div className="relative -translate-y-1 sm:-translate-y-3 md:-translate-y-8 lg:-translate-y-12 z-0">
+          <div className="animate-subtle-jump" style={{ animationDelay: '0.4s' }}>
+            <PrizeCard place="3rd Prize" amount="Revealed Soon!" color="#fe5c36" />
+          </div>
+        </div>
         
       </div>
     </section>

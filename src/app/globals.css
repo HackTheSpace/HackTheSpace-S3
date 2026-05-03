@@ -124,6 +124,18 @@ body {
       transform: translateX(0);
     }
   }
+  @keyframes subtle-jump {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+.animate-subtle-jump {
+  animation: subtle-jump 3s ease-in-out infinite;
 }
 
 .animate-spin-slow {

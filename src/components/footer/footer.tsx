@@ -61,7 +61,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="./images/footer/Code of Conduct - HTS.pdf"
+                  href="https://docs.google.com/document/d/1k_UEfc-tLtR_W_zum1AbH4YtvS6XEUsp1ihoTjTSyFI"
                   className="text-gray-500 hover:text-black transition-colors duration-200 text-sm md:text-base  decoration-purple-500 underline-offset-4"
                 >
                   HTS - Rule Book / Code of Conduct
@@ -69,10 +69,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="https://devfolio.co/code-of-conduct"
+                  href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf?_gl=1*aykpld*_ga*MTI2NDQwNTA1OS4xNzQ1MjcwNzEw*_ga_E5KT6TC4TK*MTc0NjAwNjIwNy43LjAuMTc0NjAwNjIwNy4wLjAuMA"
                   className="text-gray-500 hover:text-black transition-colors duration-200 text-sm md:text-base  decoration-purple-500 underline-offset-4"
                 >
-                  Devfolio Code of Conduct
+                  MLH Code of Conduct
                 </Link>
               </li>
             </ul>

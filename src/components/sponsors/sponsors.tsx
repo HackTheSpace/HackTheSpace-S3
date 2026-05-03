@@ -5,28 +5,31 @@ import Title from "../common/title";
 const sponsorsList = [
   // Top Tier
   { id: 1, name: "AWS", logo: "/assets/past-sponsors/aws.png" },
+  { id: 37, name: "Diamante", logo: "/assets/past-sponsors/diamante.png" },
   {
     id: 4,
     name: "GitHub Black",
     logo: "/assets/past-sponsors/GitHub_Lockup_Black_Clearspace.png",
   },
-  {
-    id: 5,
-    name: "Devfolio",
-    logo: "/assets/past-sponsors/Devfolio_Logo-White.png",
-  },
-  { id: 6, name: "MLH", logo: "/assets/past-sponsors/MLH-logo.svg" },
-  {
-    id: 8,
-    name: "Polygon",
-    logo: "/assets/past-sponsors/Polygon_Logo-White@2x.png",
-  },
-  { id: 9, name: "Postman", logo: "/assets/past-sponsors/Postman-logo.png" },
   { id: 17, name: "Orkes", logo: "/assets/past-sponsors/orkes-seeklogo.png" },
+  { id: 9, name: "Postman", logo: "/assets/past-sponsors/Postman-logo.png" },
+  { id: 6, name: "MLH", logo: "/assets/past-sponsors/MLH-logo.svg" },
+  { id: 35, name: "SSTC Black", logo: "/assets/past-sponsors/SSTCblack.svg" },
+  { id: 28, name: "HackQuest", logo: "/assets/past-sponsors/Black_on_Transparent.png" },
+  {
+    id: 16,
+    name: "GeeksforGeeks",
+    logo: "/assets/past-sponsors/GeeksforGeeks 1.svg",
+  },
   {
     id: 11,
     name: "Replit",
     logo: "/assets/past-sponsors/Replit-Dark-Background.png",
+  },
+  {
+    id: 5,
+    name: "Devfolio",
+    logo: "/assets/past-sponsors/Devfolio_Logo-White.png",
   },
   { id: 12, name: "Solana", logo: "/assets/past-sponsors/Solana Dark.png" },
   { id: 13, name: "MongoDB", logo: "/assets/past-sponsors/mongoDB.svg" },
@@ -35,31 +38,28 @@ const sponsorsList = [
     name: "Filecoin",
     logo: "/assets/past-sponsors/Filecoin Coloured White Text-1.png",
   },
+  {
+    id: 8,
+    name: "Polygon",
+    logo: "/assets/past-sponsors/Polygon_Logo-White@2x.png",
+  },
 
   // Mid Tier
   { id: 15, name: "GoDaddy", logo: "/assets/past-sponsors/goDaddy.svg" },
-  {
-    id: 16,
-    name: "GeeksforGeeks",
-    logo: "/assets/past-sponsors/GeeksforGeeks 1.svg",
-  },
   {
     id: 19,
     name: "Streamlit",
     logo: "/assets/past-sponsors/streamlit-logo.svg",
   },
   { id: 20, name: "Bluelearn", logo: "/assets/past-sponsors/Bluelearn.svg" },
+  { id: 31, name: "Quine", logo: "/assets/past-sponsors/Quine_Logo.svg" },
   { id: 22, name: "Echo3D", logo: "/assets/past-sponsors/Echo3D.png" },
   { id: 23, name: "Keploy", logo: "/assets/past-sponsors/keploy-logo.png" },
   { id: 24, name: "Taskade", logo: "/assets/past-sponsors/Taskade.png" },
   { id: 25, name: "TinyMCE", logo: "/assets/past-sponsors/tinymce.svg" },
   { id: 26, name: "VoiceFlow", logo: "/assets/past-sponsors/voiceFlowSvg.svg" },
   { id: 27, name: "VerbWire", logo: "/assets/past-sponsors/verbWire.svg" },
-  { id: 28, name: "HackQuest", logo: "/assets/past-sponsors/hackquest.png" },
   { id: 29, name: "Axure", logo: "/assets/past-sponsors/Axure.png" },
-  { id: 31, name: "Quine", logo: "/assets/past-sponsors/Quine_Logo.svg" },
-  { id: 35, name: "SSTC Black", logo: "/assets/past-sponsors/SSTCblack.svg" },
-  { id: 37, name: "Diamante", logo: "/assets/past-sponsors/diamante.png" },
   { id: 39, name: "XYZ", logo: "/assets/past-sponsors/XYZ.png" },
   {
     id: 40,

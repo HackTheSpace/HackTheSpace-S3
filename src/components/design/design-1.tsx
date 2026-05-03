@@ -26,20 +26,19 @@ const Design1 = (props: Props) => {
       <section id="about" className="scroll-mt-16 md:scroll-mt-[70px]">
         <About />
       </section>
+      {/* SPONSORS */}
+      <section id="sponsors" className="scroll-mt-16 md:scroll-mt-[70px]">
+        <Sponsors />
+      </section>
+
+      {/* PAST EVENTS — also useful for TEAM/CONTACT targets */}
+      <section id="glimpses" className="scroll-mt-16 md:scroll-mt-[70px]">
+        <PastEvents />
+      </section>
 
       {/* TRACKS section */}
       <section id="tracks" className="scroll-mt-16 md:scroll-mt-[70px]">
         <Tracks />
-      </section>
-
-      {/* PAST EVENTS — also useful for TEAM/CONTACT targets */}
-      <section id="past-events" className="scroll-mt-16 md:scroll-mt-[70px]">
-        <PastEvents />
-      </section>
-
-      {/* SPONSORS */}
-      <section id="sponsors" className="scroll-mt-16 md:scroll-mt-[70px]">
-        <Sponsors />
       </section>
 
       {/* PRIZES section */}

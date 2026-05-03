@@ -7,8 +7,10 @@ import Image from "next/image";
 const NAV_LINKS = [
   { label: "HOME", href: "#home" },
   { label: "ABOUT US", href: "#about" },
-  { label: "PRIZES", href: "#prizes" },
+  { label: "SPONSORS", href: "#sponsors" },
+  { label: "GLIMPSES", href: "#glimpses" },
   { label: "TRACKS", href: "#tracks" },
+  { label: "PRIZES", href: "#prizes" },
   { label: "FAQs", href: "#faq" },
   { label: "CONTACT", href: "#contact" },
 ];
@@ -43,9 +45,15 @@ export default function Navbar() {
   return (
     <>
       {/* ── Navbar ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 md:bg-transparent md:backdrop-blur-none md:shadow-none md:border-none ${
+          scrolled
+            ? "bg-white/10 backdrop-blur-sm shadow-[0_2px_20px_rgba(0,0,0,0.06)] border-b border-white/20"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-full">
+          <div className="flex items-center justify-between h-full py-3 md:py-0">
             {/* Logo */}
             <Link
               href="#home"

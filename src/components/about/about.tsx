@@ -3,12 +3,12 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div className="relative mb-20 sm:mb-28 md:mb-32 lg:mb-40 py-10 overflow-hidden flex flex-col items-center w-full">
+    <div className="relative mb-10 sm:mb-28 md:mb-10 lg:mb-20 py-10 overflow-hidden flex flex-col items-center w-full">
       {/* Content 1 */}
       <div className="relative z-10 w-full">
         <Content1
           title="ABOUT US"
-          preTitle="Who We Are ?"
+          preTitle="Who We Are"
           content={
             <>
               We're a community of builders, learners, and tech enthusiasts
@@ -52,12 +52,12 @@ const About = () => {
               tackle real problems, explore emerging technologies, and ship
               something they're genuinely proud of. No gatekeeping, no fluff,
               just you, your team, and 24 hours to build something that matters.
-              Whether it's your first hackathon or your tenth, HTS is where you
+              Whether it's your first hackathon or your tenth, <span className="font-bold">HackTheSpace</span> is where you
               show up, level up, and make your <span className="font-bold italic">mark</span>.
             </>
           }
         />
-        <div className="w-full flex justify-center mt-10 sm:mt-12 md:mt-16">
+        <div className="w-full flex justify-center">
           <Image
             src="/assets/graphs/box-circle.svg"
             alt="box circle"
