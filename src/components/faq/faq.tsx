@@ -1,41 +1,201 @@
 import { GoChevronDown } from "react-icons/go";
 import Title from "../common/title";
+import Link from "next/link";
 
 const faqData = [
   {
-    question: "How to register for the Hackathon ?",
-    answer:
-      "You can register by clicking the 'Register Now' button on our homepage. Follow the instructions to complete your registration.",
+    question: "What is HackTheSpace?",
+    answer: (
+      <>
+        <span className="font-bold">HackTheSpace</span> is a high-intensity
+        hackathon designed to bring together curious minds, builders, and
+        innovators to ideate, build, and showcase solutions to real-world
+        problems within a limited time frame.
+      </>
+    ),
   },
   {
-    question: "What is the team size ?",
-    answer:
-      "Teams can consist of 2 to 4 members. Individual participation is not allowed.",
+    question: "When is HackTheSpace Season 3 happening?",
+    answer: (
+      <>
+        <span className="font-bold">HackTheSpace Season 3</span> will run for 24
+        hours, from{" "}
+        <span className="bg-yellow-600/20">8th May to 10th May </span>2026. (The
+        exact start and end timings will be shared closer to the event.)
+      </>
+    ),
   },
   {
-    question: "Is there a registration fee ?",
-    answer: "No, participation in the hackathon is completely free of charge.",
+    question: "Is HackTheSpace Season 3 online or offline?",
+    answer: (
+      <>
+        <span className="font-bold">HackTheSpace </span> Season 3 will be
+        conducted completely online, allowing participants from{" "}
+        <span className="font-bold">anywhere</span> to join and collaborate
+        remotely.
+      </>
+    ),
   },
   {
-    question: "Can I participate remotely ?",
-    answer:
-      "Yes, this is a hybrid hackathon. You can participate either in-person or remotely.",
+    question: "Who can participate in HackTheSpace?",
+    answer: (
+      <>
+        <span className="font-bold">HackTheSpace</span> is open to college
+        students from all disciplines who are interested in technology,
+        innovation, and problem-solving. <br /> Beginners, experienced
+        developers, designers, product thinkers, and solo hackers are all
+        welcome.
+      </>
+    ),
   },
   {
-    question: "What are the prizes ?",
-    answer:
-      "We have a prize pool of over $10,000 including cash prizes, swags, and internship opportunities.",
+    question: "Is there any registration fee?",
+    answer: (
+      <>
+        No. <span className="font-bold">HackTheSpace</span> is completely free
+        to participate in.
+      </>
+    ),
   },
   {
-    question: "Who can participate ?",
-    answer:
-      "The hackathon is open to all university students and recent graduates.",
+    question: "How do I register for HackTheSpace Season 3?",
+    answer: (
+      <>
+        Registrations will open soon. You will be able to register via the
+        official website:{" "}
+        <Link
+          className="underline font-bold text-blue-500"
+          href="https://hackthespace.co"
+        >
+          https://hackthespace.co
+        </Link>
+      </>
+    ),
   },
+  {
+    question: "What is the registration deadline and shortlisting timeline?",
+    answer: (
+      <>
+        Registration deadlines and shortlisting timelines will be announced once
+        registrations go live. <br/> Shortlisted teams will be informed via email.
+      </>
+    ),
+  },
+  {
+    question: "What is the team size? Is solo participation allowed?",
+    answer: (
+      <>
+        Maximum team size: <span className="font-bold">4 members</span>
+        <br /> Solo participation: <span className="font-bold">Allowed</span>
+        <br /> You can participate either as an individual or as a team.
+      </>
+    ),
+  },
+  {
+    question: "Will problem statements be provided?",
+    answer: (
+      <>
+        <span className="font-bold">HackTheSpace</span> does not enforce fixed problem statements. Participants are free to build solutions in any domain or area of interest.<br /><br />
+        However, select partners may introduce dedicated tracks, which can include:
+        <ul className="list-disc pl-5 mt-2">
+          <li>Specific problem statements, or</li>
+          <li>Technologies, platforms, or APIs to build on</li>
+        </ul>
+        <br />
+        Participation in sponsor tracks is optional, and teams may choose to build independently outside these tracks.
+      </>
+    )
+  },
+  {
+    question: "Are resumes, LinkedIn, GitHub, or social media profiles mandatory?",
+    answer: (
+      <>
+        <ul className="list-disc pl-5 bg-yellow-500/20">
+          <li>Resume submission: <span className="font-bold">Mandatory</span></li>
+          <li>LinkedIn profile: <span className="font-bold">Mandatory</span></li>
+          <li>GitHub profile: <span className="font-bold">Mandatory</span></li>
+          <li>Twitter (X): Optional</li>
+        </ul>
+        <br />
+        These details help us understand participants’ backgrounds, skill sets, and enable better visibility for projects and talent discovery.<br /><br />
+       <span className="bg-yellow-500/20">Additionally, starring the mentioned GitHub repository is compulsory as part of participation.</span>
+      </>
+    )
+  },
+  {
+    question: "How will I know if my registration is successful?",
+    answer: (
+      <>
+        Once you submit the registration form with all required details,<span className="bg-yellow-500/20"> you will receive a confirmation email.</span><br />
+        Please double-check your details before submitting the form.
+      </>
+    )
+  },
+  {
+    question: "How will communication and announcements be handled during the hackathon?",
+    answer: (
+      <>
+        All official announcements, updates, and support will be shared via <span className="font-bold">Email, Social Media announcements</span> and/or <span className="font-bold">Discord</span>. Participants are expected to stay active on the platform throughout the event to not miss any important information or updates.
+      </>
+    )
+  },
+  {
+    question: "What are the submission requirements?",
+    answer: (
+      <>
+        Teams will be required to submit:
+        <ul className="list-disc pl-5 mt-2 bg-yellow-500/20">
+          <li>A working prototype or proof of concept</li>
+          <li>Source code (GitHub/GitLab/BitBucket repository)</li>
+          <li>A short project description</li>
+          <li>A demo video (duration to be announced)</li>
+        </ul>
+        <br />
+        Detailed submission guidelines will be shared before the hacking period begins.
+      </>
+    )
+  },
+  {
+    question: "How will projects be evaluated?",
+    answer: (
+      <>
+        Projects will be <span className="font-bold">judged</span> based on criteria such as:
+        <ul className="list-disc pl-5 mt-2">
+          <li>Innovation and originality</li>
+          <li>Technical implementation</li>
+          <li>Problem relevance and impact</li>
+          <li>Clarity of presentation</li>
+          <li>Completion within the hackathon timeframe</li>
+        </ul>
+        <br />
+        Additional criteria may apply for sponsor-specific tracks.
+      </>
+    )
+  },
+  {
+    question: "Can we use pre-built code or existing projects?",
+    answer: (
+      <>
+        Participants <span className="font-bold">may</span> use open-source libraries, frameworks, and APIs.<br />
+        However, the <span className="font-bold">core idea</span> and <span className="font-bold">implementation</span> must be developed during the hackathon period.<br /><br />
+        <span className="font-bold">Re-submitting previously built projects is not allowed</span>.
+      </>
+    )
+  },
+  {
+    question: "Where can I reach out for queries or support?",
+    answer: (
+      <>
+        For any questions or issues whatsoever, you can contact us at: <a href="mailto:support@hackthesapce.co" className="text-blue-500 underline font-bold">support@hackthesapce.co</a><br />
+        You can also reach out to the organizing team via <span className="font-bold">Discord</span> or <span className="font-bold">Social Media</span>.
+      </>
+    )
+  }
 ];
 
 const Faq = () => {
   return (
-    <div className="relative w-full flex flex-col min-h-screen max-h-screen bg-[url('/assets/graphs/globe.svg')] bg-center bg-contain bg-no-repeat items-center justify-center bg-transparent overflow-hidden my-20">
+    <div className="relative w-full flex flex-col min-h-screen bg-[url('/assets/graphs/globe.svg')] bg-center bg-contain bg-no-repeat items-center justify-center bg-transparent overflow-hidden my-20">
       <Title title="FAQs" />
 
       {/* FAQ Grid */}

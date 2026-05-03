@@ -36,7 +36,7 @@ const Footer = () => {
                 <Link
                   href="https://s1.hackthespace.co"
                   target="_blank"
-                  className="text-gray-300 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-purple-500 underline-offset-4"
+                  className="text-gray-500 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-purple-500 underline-offset-4"
                 >
                   Season 1
                 </Link>
@@ -45,7 +45,7 @@ const Footer = () => {
                 <Link
                   href="https://s2.hackthespace.co"
                   target="_blank"
-                  className="text-gray-300 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-purple-500 underline-offset-4"
+                  className="text-gray-500 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-purple-500 underline-offset-4"
                 >
                   Season 2
                 </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="./images/footer/Code of Conduct - HTS.pdf"
-                  className="text-gray-300 hover:text-black transition-colors duration-200 text-sm md:text-base  decoration-purple-500 underline-offset-4"
+                  className="text-gray-500 hover:text-black transition-colors duration-200 text-sm md:text-base  decoration-purple-500 underline-offset-4"
                 >
                   HTS - Rule Book / Code of Conduct
                 </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="https://devfolio.co/code-of-conduct"
-                  className="text-gray-300 hover:text-black transition-colors duration-200 text-sm md:text-base  decoration-purple-500 underline-offset-4"
+                  className="text-gray-500 hover:text-black transition-colors duration-200 text-sm md:text-base  decoration-purple-500 underline-offset-4"
                 >
                   Devfolio Code of Conduct
                 </Link>
@@ -87,28 +87,28 @@ const Footer = () => {
               <Link
                 href="https://instagram.com/hack.the.space"
                 target="_blank"
-                className="text-gray-300 hover:text-pink-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
+                className="text-gray-500 hover:text-pink-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(236,72,153,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
               >
                 <IoLogoInstagram size={24} />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/hackthespace/"
                 target="_blank"
-                className="text-gray-300 hover:text-blue-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
+                className="text-gray-500 hover:text-blue-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
               >
                 <IoLogoLinkedin size={24} />
               </Link>
               <Link
                 href="https://twitter.com/HackTheSpace_"
                 target="_blank"
-                className="text-gray-300 hover:text-sky-400 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(56,189,248,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
+                className="text-gray-500 hover:text-sky-400 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(56,189,248,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
               >
                 <IoLogoTwitter size={24} />
               </Link>
               <Link
                 href="https://discord.gg/FJKTSgdxPX"
                 target="_blank"
-                className="text-gray-300 hover:text-indigo-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
+                className="text-gray-500 hover:text-indigo-500 transition-all duration-300 transform hover:scale-110 hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] rounded-full p-2 bg-white/5 backdrop-blur-sm"
               >
                 <IoLogoDiscord size={24} />
               </Link>
@@ -124,7 +124,7 @@ const Footer = () => {
               <Link
                 href="mailto:support@hackthespace.co"
                 target="_blank"
-                className="text-gray-300 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-cyan-400 underline-offset-4"
+                className="text-gray-500 hover:text-black transition-colors duration-200 text-sm md:text-base decoration-cyan-400 underline-offset-4"
               >
                 support@hackthespace.co
               </Link>
@@ -136,7 +136,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="w-full bg-[#030014] py-6 border-t border-white/5">
         <p className="text-center text-gray-500 text-sm font-medium">
-          Made with <span className="text-red-500 animate-pulse">❤️</span> HackTheSpace
+          Made with <span className="text-red-500 animate-pulse">❤️</span> by HackTheSpace
         </p>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React from "react";
 import Title from "../common/title";
-import { Marquee, BlackMarquee, GlassMarquee } from "../common/marquees"; // Changed import
+import { BrandMarquee, GlassMarquee } from "../common/marquees"; // Changed import
 import Image from "next/image";
 
 const PastEvents = () => {
@@ -41,8 +41,9 @@ const PastEvents = () => {
             <Image
               src={src}
               alt={`Event image ${index + 1}`}
-              height={180}
-              width={180}
+              height={600}
+              width={600}
+              quality={100}
               className="object-cover drop-shadow-lg h-full w-full"
             />
           </div>
@@ -59,8 +60,9 @@ const PastEvents = () => {
             <Image
               src={src}
               alt={`Event image ${index + 1}`}
-              width={180}
-              height={180}
+              width={600}
+              height={600}
+              quality={100}
               className="object-cover drop-shadow-lg h-full w-full"
             />
           </div>
@@ -82,8 +84,8 @@ const PastEvents = () => {
       {/* Main Content Container - Rotated */}
       <div className="relative w-full flex flex-col h-full items-center justify-center mt-4 sm:mt-10">
         {/* Background Text Marquee */}
-        <div className="rotate-[4deg] md:rotate-2 flex items-center justify-center opacity-90 z-0 scale-[1.05] md:scale-110 w-[150%] md:w-[120%]">
-          <BlackMarquee direction="left" highlightColor="#1FBCD7" speed="80s" />
+        <div className="rotate-[4deg] md:rotate-2 flex items-center justify-center opacity-90 z-0 w-[150%] md:w-[120%]">
+          <BrandMarquee direction="left" speed="80s" />
         </div>
         {/* Row 1 */}
         <div className="w-[150%] md:w-[120%] relative flex items-center justify-center py-2 sm:py-3">
@@ -100,8 +102,8 @@ const PastEvents = () => {
           </div>
         </div>
 
-        <div className="-rotate-[4deg] md:-rotate-6 flex items-center justify-center opacity-90 z-15 scale-[1.05] md:scale-110 w-[150%] md:w-[120%] mt-4 sm:mt-0">
-          <BlackMarquee direction="right" highlightColor="#1FBCD7" speed="80s" />
+        <div className="-rotate-[4deg] md:-rotate-6 flex items-center justify-center opacity-90 z-15 w-[150%] md:w-[120%] mt-4 sm:mt-0">
+          <BrandMarquee direction="right" speed="80s" />
         </div>
 
         {/* Row 2 */}
@@ -113,8 +115,8 @@ const PastEvents = () => {
             </GlassMarquee>
           </div>
         </div>
-        <div className="rotate-[4deg] md:rotate-4 flex items-center justify-center opacity-90 z-8 scale-[1.05] md:scale-110 w-[150%] md:w-[120%] mt-4 sm:mt-0">
-          <BlackMarquee direction="left" highlightColor="#1FBCD7" speed="80s" />
+        <div className="rotate-[4deg] md:rotate-4 flex items-center justify-center opacity-90 z-8 w-[150%] md:w-[120%] mt-4 sm:mt-0">
+          <BrandMarquee direction="left" speed="80s" />
         </div>
       </div>
     </div>
