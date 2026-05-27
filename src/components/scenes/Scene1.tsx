@@ -5,8 +5,133 @@ import { FaDiscord } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 import {FaMapLocationDot} from "react-icons/fa6"
 import { IoCalendarOutline } from "react-icons/io5";
+import { useState, useEffect } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Scene() {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isInsideViewport, setIsInsideViewport] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const [isPopped, setIsPopped] = useState(false);
+  const [particles, setParticles] = useState<{ id: number; startX: number; startY: number; color: string }[]>([]);
+
+  // Automatically reset click count if user stops clicking for 1.2 seconds
+  useEffect(() => {
+    if (clickCount > 0 && !isPopped) {
+      const timeout = setTimeout(() => {
+        setClickCount(0);
+      }, 1200);
+      return () => clearTimeout(timeout);
+    }
+  }, [clickCount, isPopped]);
+
+  // Motion values for the outer glass ring (larger, slower spring)
+  const outerX = useMotionValue(-100);
+  const outerY = useMotionValue(-100);
+
+  // Motion values for the inner core dot (smaller, faster spring)
+  const innerX = useMotionValue(-100);
+  const innerY = useMotionValue(-100);
+
+  const outerSpringConfig = { damping: 30, stiffness: 180, mass: 0.6 };
+  const innerSpringConfig = { damping: 20, stiffness: 350, mass: 0.2 };
+
+  const outerXSpring = useSpring(outerX, outerSpringConfig);
+  const outerYSpring = useSpring(outerY, outerSpringConfig);
+
+  const innerXSpring = useSpring(innerX, innerSpringConfig);
+  const innerYSpring = useSpring(innerY, innerSpringConfig);
+
+  useEffect(() => {
+    setIsMounted(true);
+
+    const moveCursor = (e: MouseEvent) => {
+      // Offset by half of outer ring size (64px -> -32)
+      outerX.set(e.clientX - 32);
+      outerY.set(e.clientY - 32);
+
+      // Offset by half of inner dot size (8px -> -4)
+      innerX.set(e.clientX - 4);
+      innerY.set(e.clientY - 4);
+    };
+
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+
+    const handleMouseOver = () => setIsInsideViewport(true);
+    const handleMouseOut = (e: MouseEvent) => {
+      if (!e.relatedTarget || e.relatedTarget === document.documentElement) {
+        setIsInsideViewport(false);
+      }
+    };
+
+    const handleMouseDown = (e: MouseEvent) => {
+      if (e.button !== 0 || isPopped) return; // Only track left clicks, ignore if already popped
+
+      setClickCount((prev) => {
+        if (prev >= 9) {
+          // Trigger Pop!
+          setIsPopped(true);
+
+          // Generate 16 radial burst particles at click coordinates
+          const colors = ["#1fbcd7", "#feb449", "#fe5c36"];
+          const newParticles = Array.from({ length: 16 }).map((_, i) => ({
+            id: Math.random() + i,
+            startX: e.clientX,
+            startY: e.clientY,
+            color: colors[i % colors.length]
+          }));
+          setParticles(newParticles);
+
+          // Reset pop and click state after 1 second
+          setTimeout(() => {
+            setIsPopped(false);
+            setClickCount(0);
+            setParticles([]);
+          }, 1000);
+
+          return 10;
+        }
+        return prev + 1;
+      });
+    };
+
+    window.addEventListener("mousemove", moveCursor, { passive: true });
+    document.addEventListener("mouseover", handleMouseOver, { passive: true });
+    document.addEventListener("mouseout", handleMouseOut, { passive: true });
+    window.addEventListener("mousedown", handleMouseDown, { passive: true });
+
+    // Setup interactive hover list
+    const addHoverListeners = () => {
+      const interactiveElements = document.querySelectorAll("a, button, [role='button'], .glass-card");
+      interactiveElements.forEach((el) => {
+        el.addEventListener("mouseenter", handleMouseEnter);
+        el.addEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+
+    // Initial setup
+    addHoverListeners();
+
+    // Re-run listener attachment if DOM changes
+    const observer = new MutationObserver(addHoverListeners);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      window.removeEventListener("mousemove", moveCursor);
+      document.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseout", handleMouseOut);
+      window.removeEventListener("mousedown", handleMouseDown);
+      observer.disconnect();
+      const interactiveElements = document.querySelectorAll("a, button, [role='button'], .glass-card");
+      interactiveElements.forEach((el) => {
+        el.removeEventListener("mouseenter", handleMouseEnter);
+        el.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, [isPopped]);
+
   return (
     <section className="relative w-full h-screen bg-linear-to-b from-white to-gray-100">
       {/* Inner wrapper clips the hero content but lets the marquee overflow */}
@@ -74,10 +199,10 @@ export default function Scene() {
           style={{ animation: "bounce-btn 2.6s ease-in-out 0.8s infinite" }}
         >
           <GlassCard radius="2xl" className="p-3 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-2 sm:gap-3 lg:gap-4">
-            <div className="bg-white flex items-center py-2 px-4 rounded-full">
+            <div className="bg-white flex items-center py-2 px-6 rounded-full">
               <p className="text-black font-poppins text-[12px] md:text-base font-medium text-center leading-relaxed">
-                KJSCE, Vidya Vihar East, <br/>
-                 Mumbai, Maharashtra, 400077
+                K. J. Somaiya College of Engineering <br/> Vidyanagar, Vidyavihar (East) <br/>
+                Mumbai, Maharashtra, India 400077
               </p>
               <span className="register-arrow-btn ml-2" aria-hidden="true">
                 <FaMapLocationDot size={22} color="white" />
@@ -179,6 +304,75 @@ export default function Scene() {
           }}
         />
       </div>
+
+      {/* Premium Glassmorphic Mouse Trailer */}
+      {isMounted && isInsideViewport && (
+        <div className="hidden md:block pointer-events-none fixed inset-0 z-[9999]">
+          {/* Outer Glassmorphic Ring */}
+          <motion.div
+            animate={isPopped ? {
+              scale: 3,
+              opacity: 0,
+              borderWidth: "12px",
+            } : {
+              scale: 1 + (clickCount * 0.18),
+              opacity: 1,
+            }}
+            transition={isPopped ? { duration: 0.35, ease: "easeOut" } : { type: "spring", stiffness: 300, damping: 20 }}
+            style={{
+              x: outerXSpring,
+              y: outerYSpring,
+              width: isHovered ? 96 : 64,
+              height: isHovered ? 96 : 64,
+            }}
+            className="absolute rounded-full border border-white/35 bg-white/10 backdrop-blur-[6px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),_0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out"
+          />
+
+          {/* Inner Core Dot with brand gradient glow */}
+          <motion.div
+            animate={isPopped ? {
+              scale: 4,
+              opacity: 0,
+            } : {
+              scale: (isHovered ? 1.5 : 1) * (1 + (clickCount * 0.1)),
+              opacity: 1,
+            }}
+            transition={isPopped ? { duration: 0.25, ease: "easeOut" } : { type: "spring", stiffness: 300, damping: 20 }}
+            style={{
+              x: innerXSpring,
+              y: innerYSpring,
+            }}
+            className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-[#1fbcd7] via-[#feb449] to-[#fe5c36] shadow-[0_0_10px_rgba(254,92,54,0.6)] transition-transform duration-300"
+          />
+
+          {/* Burst Particles */}
+          {particles.map((p, idx) => {
+            const angle = (idx / particles.length) * Math.PI * 2;
+            const distance = 80 + Math.random() * 60;
+            const targetX = Math.cos(angle) * distance - 4; // offset half width of particle (8px -> -4)
+            const targetY = Math.sin(angle) * distance - 4;
+
+            return (
+              <motion.div
+                key={p.id}
+                initial={{ x: p.startX - 4, y: p.startY - 4, scale: 1.2, opacity: 1 }}
+                animate={{ 
+                  x: p.startX + targetX, 
+                  y: p.startY + targetY, 
+                  scale: 0, 
+                  opacity: 0 
+                }}
+                transition={{ duration: 0.65, ease: "easeOut" }}
+                className="absolute w-2 h-2 rounded-full"
+                style={{ 
+                  backgroundColor: p.color, 
+                  boxShadow: `0 0 10px ${p.color}, inset 0 1px 1px rgba(255,255,255,0.8)` 
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
 
       <style>{`
         @keyframes marquee {

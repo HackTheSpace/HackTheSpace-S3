@@ -8,6 +8,7 @@ import Scene from "../scenes/Scene1";
 import Footer from "../footer/footer";
 import Sponsors from "../sponsors/sponsors";
 import Navbar from "../navbar/navbar";
+import BackToTop from "../buttons/back-to-top";
 
 type Props = {};
 
@@ -55,6 +56,9 @@ const Design1 = (props: Props) => {
       <section id="contact" className="scroll-mt-16 md:scroll-mt-[70px]">
         <Footer />
       </section>
+
+      {/* Back to top button with circular progress */}
+      <BackToTop />
     </div>
   );
 };
