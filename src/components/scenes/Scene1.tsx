@@ -3,7 +3,7 @@ import GlassCard from "@/components/common/glass-card";
 import Link from "next/link";
 import { FaDiscord } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
-import {FaMapLocationDot} from "react-icons/fa6"
+import { FaMapLocationDot } from "react-icons/fa6";
 import { IoCalendarOutline } from "react-icons/io5";
 import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
@@ -15,7 +15,9 @@ export default function Scene() {
   const [clickCount, setClickCount] = useState(0);
   const [isPopped, setIsPopped] = useState(false);
   const [hasPopped, setHasPopped] = useState(false);
-  const [particles, setParticles] = useState<{ id: number; startX: number; startY: number; color: string }[]>([]);
+  const [particles, setParticles] = useState<
+    { id: number; startX: number; startY: number; color: string }[]
+  >([]);
   const sectionRef = useRef<HTMLElement>(null);
 
   // Automatically reset click count if user stops clicking for 1.2 seconds
@@ -83,7 +85,7 @@ export default function Scene() {
             id: Math.random() + i,
             startX: e.clientX,
             startY: e.clientY,
-            color: colors[i % colors.length]
+            color: colors[i % colors.length],
           }));
           setParticles(newParticles);
 
@@ -110,7 +112,7 @@ export default function Scene() {
         id: Math.random() + i,
         startX: e.clientX,
         startY: e.clientY,
-        color: colors[i % colors.length]
+        color: colors[i % colors.length],
       }));
       setParticles(newParticles);
 
@@ -134,7 +136,7 @@ export default function Scene() {
           id: Math.random() + i,
           startX: lastX,
           startY: lastY,
-          color: colors[i % colors.length]
+          color: colors[i % colors.length],
         }));
         setParticles(newParticles);
 
@@ -158,7 +160,9 @@ export default function Scene() {
 
     // Setup interactive hover list
     const addHoverListeners = () => {
-      const interactiveElements = document.querySelectorAll("a, button, [role='button'], .glass-card");
+      const interactiveElements = document.querySelectorAll(
+        "a, button, [role='button'], .glass-card",
+      );
       interactiveElements.forEach((el) => {
         el.addEventListener("mouseenter", handleMouseEnter);
         el.addEventListener("mouseleave", handleMouseLeave);
@@ -182,7 +186,9 @@ export default function Scene() {
         sectionEl.removeEventListener("mouseleave", handleSectionMouseLeave);
       }
       observer.disconnect();
-      const interactiveElements = document.querySelectorAll("a, button, [role='button'], .glass-card");
+      const interactiveElements = document.querySelectorAll(
+        "a, button, [role='button'], .glass-card",
+      );
       interactiveElements.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter);
         el.removeEventListener("mouseleave", handleMouseLeave);
@@ -191,7 +197,10 @@ export default function Scene() {
   }, [isPopped, hasPopped]);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-screen bg-linear-to-b from-white to-gray-100">
+    <section
+      ref={sectionRef}
+      className="relative w-full h-screen bg-linear-to-b from-white to-gray-100"
+    >
       {/* Inner wrapper clips the hero content but lets the marquee overflow */}
       <div className="absolute inset-0 h-full overflow-hidden">
         {/* hero-bg.png — centered, contained, non-repeating */}
@@ -218,13 +227,19 @@ export default function Scene() {
           className="absolute w-max z-21 top-[60%] sm:top-[62%] left-2 sm:left-4 right-auto md:right-auto md:mx-0 md:top-60 lg:top-70 xl:top-80 md:left-[15%] lg:left-[22%] xl:left-110"
           style={{ animation: "bounce-btn 2.4s ease-in-out infinite" }}
         >
-          <GlassCard radius="2xl" className="p-1.5 sm:p-2 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-1 sm:gap-2 lg:gap-4">
+          <GlassCard
+            radius="2xl"
+            className="p-1.5 sm:p-2 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-1 sm:gap-2 lg:gap-4"
+          >
             <div className="bg-white flex items-center py-1.5 px-2.5 md:py-2 md:px-4 rounded-full">
               <span className="text-[11px] sm:text-sm md:text-2xl font-semibold text-gray-800 whitespace-nowrap font-poppins pr-1.5 md:pr-2">
                 Register Now!
               </span>
               {/* Brand gradient circle with arrow */}
-              <span className="register-arrow-btn flex items-center justify-center w-5 h-5 md:w-8 md:h-8" aria-hidden="true">
+              <span
+                className="register-arrow-btn flex items-center justify-center w-5 h-5 md:w-8 md:h-8"
+                aria-hidden="true"
+              >
                 <FiArrowUpRight className="w-3 h-3 md:w-5 md:h-5 text-white" />
               </span>
             </div>
@@ -239,12 +254,18 @@ export default function Scene() {
           className="absolute w-max z-21 top-[60%] sm:top-[62%] right-2 sm:right-4 left-auto md:left-auto md:mx-0 md:top-auto md:bottom-70 lg:bottom-80 xl:bottom-90 md:right-[15%] lg:right-[22%] xl:right-95"
           style={{ animation: "bounce-btn 2.4s ease-in-out 0.4s infinite" }}
         >
-          <GlassCard radius="2xl" className="p-1.5 sm:p-2 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-1 sm:gap-2 lg:gap-4">
+          <GlassCard
+            radius="2xl"
+            className="p-1.5 sm:p-2 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-1 sm:gap-2 lg:gap-4"
+          >
             <div className="bg-white flex items-center py-1.5 px-2.5 md:py-2 md:px-4 rounded-full">
               <span className="text-[11px] sm:text-sm md:text-2xl font-semibold text-gray-800 whitespace-nowrap font-poppins pr-1.5 md:pr-2">
                 Join Discord
               </span>
-              <span className="register-arrow-btn flex items-center justify-center w-5 h-5 md:w-8 md:h-8" aria-hidden="true">
+              <span
+                className="register-arrow-btn flex items-center justify-center w-5 h-5 md:w-8 md:h-8"
+                aria-hidden="true"
+              >
                 <FaDiscord className="w-3 h-3 md:w-5 md:h-5 text-white" />
               </span>
             </div>
@@ -252,14 +273,21 @@ export default function Scene() {
         </Link>
 
         {/* Address Card */}
-        <div
+        <Link
+          href="https://www.google.com/maps/place/K.+J.+Somaiya+College+of+Engineering/@19.0728521,72.8973513,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c627a20bcaa9:0xb2fd3bcfeac0052a!8m2!3d19.072847!4d72.8999262!16zL20vMDYzenNf?entry=ttu&g_ep=EgoyMDI2MDUyNS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
           className="absolute w-max z-21 bottom-20 sm:bottom-20 left-0 right-0 mx-auto md:right-auto md:mx-0 md:bottom-40 md:left-24 lg:left-40 xl:left-56"
           style={{ animation: "bounce-btn 2.6s ease-in-out 0.8s infinite" }}
         >
-          <GlassCard radius="2xl" className="p-3 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-2 sm:gap-3 lg:gap-4">
+          <GlassCard
+            radius="2xl"
+            className="p-3 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-2 sm:gap-3 lg:gap-4"
+          >
             <div className="bg-white flex items-center py-2 px-6 rounded-full">
               <p className="text-black font-poppins text-[12px] md:text-base font-medium text-center leading-relaxed">
-                K. J. Somaiya College of Engineering <br/> Vidyanagar, Vidyavihar (East) <br/>
+                K. J. Somaiya College of Engineering <br /> Vidyanagar,
+                Vidyavihar (East) <br />
                 Mumbai, Maharashtra, India 400077
               </p>
               <span className="register-arrow-btn ml-2" aria-hidden="true">
@@ -267,14 +295,19 @@ export default function Scene() {
               </span>
             </div>
           </GlassCard>
-        </div>
+        </Link>
 
         {/* Date Card */}
-        <div
+        <Link
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20261009T000000Z/20261009T010000Z&text=My+Event"
+          target="_blank"
           className="absolute w-max z-21 bottom-45   sm:bottom-40 md:top-32 lg:top-40 xl:top-48 left-0 right-0 mx-auto md:left-auto md:mx-0 md:right-24 lg:right-40 xl:right-56 h-fit"
           style={{ animation: "bounce-btn 2.5s ease-in-out 0.2s infinite" }}
         >
-          <GlassCard radius="2xl" className="p-3 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-2 sm:gap-3 lg:gap-4">
+          <GlassCard
+            radius="2xl"
+            className="p-3 sm:px-4 sm:py-3 md:px-5 md:py-4 lg:px-6 lg:py-5 gap-2 sm:gap-3 lg:gap-4"
+          >
             <div className="bg-white flex items-center py-2 px-4 rounded-full">
               <span className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 whitespace-nowrap font-poppins pr-2">
                 9-10 October 2026
@@ -284,7 +317,7 @@ export default function Scene() {
               </span>
             </div>
           </GlassCard>
-        </div>
+        </Link>
 
         {/* glass-astro.svg — pinned to the bottom, full width */}
         <img
@@ -368,15 +401,23 @@ export default function Scene() {
         <div className="hidden md:block pointer-events-none fixed inset-0 z-[9999]">
           {/* Outer Glassmorphic Ring */}
           <motion.div
-            animate={isPopped ? {
-              scale: 3,
-              opacity: 0,
-              borderWidth: "12px",
-            } : {
-              scale: 1 + (clickCount * 0.18),
-              opacity: 1,
-            }}
-            transition={isPopped ? { duration: 0.35, ease: "easeOut" } : { type: "spring", stiffness: 300, damping: 20 }}
+            animate={
+              isPopped
+                ? {
+                    scale: 3,
+                    opacity: 0,
+                    borderWidth: "12px",
+                  }
+                : {
+                    scale: 1 + clickCount * 0.18,
+                    opacity: 1,
+                  }
+            }
+            transition={
+              isPopped
+                ? { duration: 0.35, ease: "easeOut" }
+                : { type: "spring", stiffness: 300, damping: 20 }
+            }
             style={{
               x: outerXSpring,
               y: outerYSpring,
@@ -388,14 +429,22 @@ export default function Scene() {
 
           {/* Inner Core Dot with brand gradient glow */}
           <motion.div
-            animate={isPopped ? {
-              scale: 4,
-              opacity: 0,
-            } : {
-              scale: (isHovered ? 1.5 : 1) * (1 + (clickCount * 0.1)),
-              opacity: 1,
-            }}
-            transition={isPopped ? { duration: 0.25, ease: "easeOut" } : { type: "spring", stiffness: 300, damping: 20 }}
+            animate={
+              isPopped
+                ? {
+                    scale: 4,
+                    opacity: 0,
+                  }
+                : {
+                    scale: (isHovered ? 1.5 : 1) * (1 + clickCount * 0.1),
+                    opacity: 1,
+                  }
+            }
+            transition={
+              isPopped
+                ? { duration: 0.25, ease: "easeOut" }
+                : { type: "spring", stiffness: 300, damping: 20 }
+            }
             style={{
               x: innerXSpring,
               y: innerYSpring,
@@ -413,18 +462,23 @@ export default function Scene() {
             return (
               <motion.div
                 key={p.id}
-                initial={{ x: p.startX - 4, y: p.startY - 4, scale: 1.2, opacity: 1 }}
-                animate={{ 
-                  x: p.startX + targetX, 
-                  y: p.startY + targetY, 
-                  scale: 0, 
-                  opacity: 0 
+                initial={{
+                  x: p.startX - 4,
+                  y: p.startY - 4,
+                  scale: 1.2,
+                  opacity: 1,
+                }}
+                animate={{
+                  x: p.startX + targetX,
+                  y: p.startY + targetY,
+                  scale: 0,
+                  opacity: 0,
                 }}
                 transition={{ duration: 0.65, ease: "easeOut" }}
                 className="absolute w-2 h-2 rounded-full"
-                style={{ 
-                  backgroundColor: p.color, 
-                  boxShadow: `0 0 10px ${p.color}, inset 0 1px 1px rgba(255,255,255,0.8)` 
+                style={{
+                  backgroundColor: p.color,
+                  boxShadow: `0 0 10px ${p.color}, inset 0 1px 1px rgba(255,255,255,0.8)`,
                 }}
               />
             );

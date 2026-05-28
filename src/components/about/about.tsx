@@ -9,10 +9,10 @@ const About = () => {
     <div className="relative mb-10 sm:mb-28 md:mb-10 lg:mb-20 py-10 overflow-hidden flex flex-col items-center w-full">
       {/* Content 1 */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 200 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-10px" }}
-        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true, margin: "10px" }}
+        transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full"
       >
         <Content1
@@ -50,11 +50,11 @@ const About = () => {
 
       {/* Content 2 */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 200 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full flex flex-col items-center"
+        viewport={{ once: true, margin: "10px" }}
+        transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full"
       >
         <Content1
           title="HACKTHESPACE ?"
