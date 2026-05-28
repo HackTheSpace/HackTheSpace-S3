@@ -1,11 +1,20 @@
+"use client";
+
 import Content1 from "../common/content-1";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <div className="relative mb-10 sm:mb-28 md:mb-10 lg:mb-20 py-10 overflow-hidden flex flex-col items-center w-full">
       {/* Content 1 */}
-      <div className="relative z-10 w-full">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10px" }}
+        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full"
+      >
         <Content1
           title="ABOUT US"
           preTitle="Who We Are"
@@ -26,7 +35,7 @@ const About = () => {
             </>
           }
         />
-      </div>
+      </motion.div>
 
       {/* Background Tunnel (Overlapping top & bottom by ~40%) */}
       <div className="relative z-0 w-full flex justify-center opacity-60 pointer-events-none -my-[40%] lg:-my-[400px]">
@@ -40,7 +49,13 @@ const About = () => {
       </div>
 
       {/* Content 2 */}
-      <div className="relative z-10 w-full flex flex-col items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full flex flex-col items-center"
+      >
         <Content1
           title="HACKTHESPACE ?"
           preTitle="What Is"
@@ -66,7 +81,7 @@ const About = () => {
             className="w-4/5 sm:w-2/3 md:w-1/2 lg:w-[500px] h-auto"
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
