@@ -46,7 +46,7 @@ const About = () => {
           preTitle="What Is"
           content={
             <>
-              <span className="font-bold">HackTheSpace</span> is a 24-hour global online hackathon where you go
+              <span className="font-bold">HackTheSpace</span> is a 24-hour offline hackathon where you go
               from idea to prototype - <span className="font-bold italic">FAST</span>. Every season, students and
               early-career builders come together on a shared physical stage to
               tackle real problems, explore emerging technologies, and ship

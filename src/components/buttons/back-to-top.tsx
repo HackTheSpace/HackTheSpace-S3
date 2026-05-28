@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { GiStarfighter } from "react-icons/gi";
+import { GiSpaceShuttle } from "react-icons/gi";
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -112,7 +112,7 @@ export default function BackToTop() {
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
             className="z-10 flex items-center justify-center"
           >
-            <GiStarfighter
+            <GiSpaceShuttle
               className="w-5 h-5 text-gray-700 group-hover:text-[#fe5c36] transition-colors duration-300" 
               strokeWidth={3}
             />

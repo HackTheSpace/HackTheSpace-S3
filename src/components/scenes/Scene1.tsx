@@ -5,7 +5,7 @@ import { FaDiscord } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 import {FaMapLocationDot} from "react-icons/fa6"
 import { IoCalendarOutline } from "react-icons/io5";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Scene() {
@@ -14,7 +14,9 @@ export default function Scene() {
   const [isInsideViewport, setIsInsideViewport] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const [isPopped, setIsPopped] = useState(false);
+  const [hasPopped, setHasPopped] = useState(false);
   const [particles, setParticles] = useState<{ id: number; startX: number; startY: number; color: string }[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
 
   // Automatically reset click count if user stops clicking for 1.2 seconds
   useEffect(() => {
@@ -45,6 +47,7 @@ export default function Scene() {
 
   useEffect(() => {
     setIsMounted(true);
+    if (hasPopped) return;
 
     const moveCursor = (e: MouseEvent) => {
       // Offset by half of outer ring size (64px -> -32)
@@ -84,10 +87,9 @@ export default function Scene() {
           }));
           setParticles(newParticles);
 
-          // Reset pop and click state after 1 second
+          // Mark permanently popped after 1 second
           setTimeout(() => {
-            setIsPopped(false);
-            setClickCount(0);
+            setHasPopped(true);
             setParticles([]);
           }, 1000);
 
@@ -97,10 +99,62 @@ export default function Scene() {
       });
     };
 
+    const handleSectionMouseLeave = (e: MouseEvent) => {
+      if (isPopped || hasPopped) return;
+
+      setIsPopped(true);
+
+      // Generate 16 radial burst particles at cursor exit coordinates
+      const colors = ["#1fbcd7", "#feb449", "#fe5c36"];
+      const newParticles = Array.from({ length: 16 }).map((_, i) => ({
+        id: Math.random() + i,
+        startX: e.clientX,
+        startY: e.clientY,
+        color: colors[i % colors.length]
+      }));
+      setParticles(newParticles);
+
+      setTimeout(() => {
+        setHasPopped(true);
+        setParticles([]);
+      }, 1000);
+    };
+
+    const handleScrollPop = () => {
+      if (isPopped || hasPopped) return;
+      if (window.scrollY > window.innerHeight) {
+        setIsPopped(true);
+
+        // Calculate last known cursor coordinates
+        const lastX = outerX.get() + 32;
+        const lastY = outerY.get() + 32;
+
+        const colors = ["#1fbcd7", "#feb449", "#fe5c36"];
+        const newParticles = Array.from({ length: 16 }).map((_, i) => ({
+          id: Math.random() + i,
+          startX: lastX,
+          startY: lastY,
+          color: colors[i % colors.length]
+        }));
+        setParticles(newParticles);
+
+        setTimeout(() => {
+          setHasPopped(true);
+          setParticles([]);
+        }, 1000);
+      }
+    };
+
     window.addEventListener("mousemove", moveCursor, { passive: true });
     document.addEventListener("mouseover", handleMouseOver, { passive: true });
     document.addEventListener("mouseout", handleMouseOut, { passive: true });
     window.addEventListener("mousedown", handleMouseDown, { passive: true });
+    window.addEventListener("scroll", handleScrollPop, { passive: true });
+
+    const sectionEl = sectionRef.current;
+    if (sectionEl) {
+      sectionEl.addEventListener("mouseleave", handleSectionMouseLeave);
+    }
 
     // Setup interactive hover list
     const addHoverListeners = () => {
@@ -123,6 +177,10 @@ export default function Scene() {
       document.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseout", handleMouseOut);
       window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("scroll", handleScrollPop);
+      if (sectionEl) {
+        sectionEl.removeEventListener("mouseleave", handleSectionMouseLeave);
+      }
       observer.disconnect();
       const interactiveElements = document.querySelectorAll("a, button, [role='button'], .glass-card");
       interactiveElements.forEach((el) => {
@@ -130,10 +188,10 @@ export default function Scene() {
         el.removeEventListener("mouseleave", handleMouseLeave);
       });
     };
-  }, [isPopped]);
+  }, [isPopped, hasPopped]);
 
   return (
-    <section className="relative w-full h-screen bg-linear-to-b from-white to-gray-100">
+    <section ref={sectionRef} className="relative w-full h-screen bg-linear-to-b from-white to-gray-100">
       {/* Inner wrapper clips the hero content but lets the marquee overflow */}
       <div className="absolute inset-0 h-full overflow-hidden">
         {/* hero-bg.png — centered, contained, non-repeating */}
@@ -306,7 +364,7 @@ export default function Scene() {
       </div>
 
       {/* Premium Glassmorphic Mouse Trailer */}
-      {isMounted && isInsideViewport && (
+      {isMounted && isInsideViewport && !hasPopped && (
         <div className="hidden md:block pointer-events-none fixed inset-0 z-[9999]">
           {/* Outer Glassmorphic Ring */}
           <motion.div

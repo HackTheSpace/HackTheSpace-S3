@@ -313,3 +313,45 @@ body {
   transform: scale(1.08) rotate(4deg);
   box-shadow: 0 4px 16px rgba(254, 92, 54, 0.5);
 }
+
+/* ─────────────────────────────────────────────
+   Custom Scrollbar Styling
+   Adds transparent background and brand gradient thumb
+───────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #feb449 transparent;
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #1fbcd7 40%,
+    #feb449 55%,
+    #fe5c36 100%
+  );
+  background-attachment: fixed;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    #1cb0c9 40%,
+    #e5a242 55%,
+    #e55331 100%
+  );
+  background-attachment: fixed;
+}
