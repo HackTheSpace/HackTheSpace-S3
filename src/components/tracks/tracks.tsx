@@ -5,6 +5,7 @@ import SponsorCard from "../common/sponsor-card";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 const tracks = [
   {
@@ -152,14 +153,27 @@ const Tracks = () => {
       className="relative w-full h-full min-h-screen overflow-hidden my-28"
     >
       {/* ✅ FULLSCREEN BACKGROUND */}
-      <div className="absolute left-1/2 -translate-x-1/2 w-[80%] h-full z-0">
-        <Image
-          src="/assets/graphs/track-bg-grid.svg"
-          alt="Background Grid"
-          fill
-          className="object-contain"
-          priority
-        />
+      <div className="absolute left-1/2 -translate-x-1/2 w-[80%] h-full z-0 pointer-events-none">
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+            scale: [1, 1.03, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="w-full h-full relative"
+        >
+          <Image
+            src="/assets/graphs/track-bg-grid.svg"
+            alt="Background Grid"
+            fill
+            className="object-contain"
+            priority
+          />
+        </motion.div>
       </div>
 
       {/* CONTENT WRAPPER */}

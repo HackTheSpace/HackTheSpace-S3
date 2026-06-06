@@ -39,13 +39,13 @@ const About = () => {
 
       {/* Background Tunnel (Overlapping top & bottom by ~40%) */}
       <div className="relative z-0 w-full flex justify-center opacity-60 pointer-events-none -my-[40%] lg:-my-[400px]">
-        <Image
-          src="/assets/graphs/tunnel.svg"
-          alt="tunnel background"
-          width={1000}
-          height={1000}
+          <Image
+            src="/assets/graphs/tunnel.svg"
+            alt="tunnel background"
+            width={1000}
+            height={1000}
           className="w-11/12 sm:w-4/5 md:w-3/4 lg:w-[1000px] h-auto"
-        />
+          />
       </div>
 
       {/* Content 2 */}

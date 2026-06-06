@@ -320,11 +320,11 @@ export default function Scene() {
         </Link>
 
         {/* glass-astro.svg — pinned to the bottom, full width */}
-        <img
-          src="/assets/glass-astro.svg"
-          alt="Glass Astro"
+          <img
+            src="/assets/glass-astro.svg"
+            alt="Glass Astro"
           className="absolute bottom-0 md:top-0 left-1/2 -translate-x-1/2 w-[170%] sm:w-[140%] md:w-[110%] lg:w-[80%] xl:w-[72%] max-w-none pointer-events-none select-none z-20"
-        />
+          />
 
         <div
           className="absolute left-0 bottom-0 w-full h-1/5 z-22 backdrop-blur-lg pointer-events-none"

@@ -1,6 +1,8 @@
+"use client";
 import { GoChevronDown } from "react-icons/go";
 import Title from "../common/title";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const faqData = [
   {
@@ -235,7 +237,20 @@ const faqData = [
 
 const Faq = () => {
   return (
-    <div className="relative w-full flex flex-col min-h-screen bg-[url('/assets/graphs/globe.svg')] bg-center bg-contain bg-no-repeat items-center justify-center bg-transparent overflow-hidden my-20">
+    <div className="relative w-full flex flex-col min-h-screen items-center justify-center bg-transparent overflow-hidden my-20">
+      {/* Rotating Globe Background */}
+      <motion.div
+        animate={{
+          rotate: 360,
+        }}
+        transition={{
+          duration: 90,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="absolute inset-0 w-full h-full z-0 bg-[url('/assets/graphs/globe.svg')] bg-center bg-contain bg-no-repeat pointer-events-none opacity-[0.35]"
+      />
+
       <Title title="FAQs" />
       <p className="font-poppins text-sm max-w-7xl md:text-base lg:text-base text-gray-700 font-light leading-relaxed text-center">
         Got <span className="font-bold italic">questions?</span>{"  "} We've got <span className="font-bold italic">answers</span>. Check out our FAQs below for

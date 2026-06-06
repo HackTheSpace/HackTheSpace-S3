@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Title from "../common/title";
+import { motion } from "framer-motion";
 
 const PrizeCard = ({
   place,
@@ -74,7 +76,20 @@ const PrizeCard = ({
 
 const Prizes = () => {
   return (
-    <section className="relative w-full min-h-[50vh] md:min-h-screen bg-[url('/assets/graphs/landscape.svg')] bg-bottom bg-size-[250%_auto] sm:bg-size-[150%_auto] md:bg-cover bg-no-repeat flex flex-col items-center justify-start md:justify-start overflow-hidden pt-10 pb-4 sm:py-20 gap-6 md:gap-20">
+    <section className="relative w-full min-h-[50vh] md:min-h-screen bg-transparent flex flex-col items-center justify-start md:justify-start overflow-hidden pt-10 pb-4 sm:py-20 gap-6 md:gap-20">
+      {/* Floating Landscape Background */}
+      <motion.div
+        animate={{
+          y: [0, 10, 0],
+          scale: [1, 1.02, 1],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute inset-0 w-full h-full z-0 bg-[url('/assets/graphs/landscape.svg')] bg-bottom bg-size-[250%_auto] sm:bg-size-[150%_auto] md:bg-cover bg-no-repeat pointer-events-none opacity-90"
+      />
 
       <div className="md:mt-0 mb-20 md:mb-0">
         <Title title="PRIZES" />

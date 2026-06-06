@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Title from "../common/title";
 import { BrandMarquee, GlassMarquee } from "../common/marquees"; // Changed import
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const PastEvents = () => {
   const images = [
@@ -76,8 +78,19 @@ const PastEvents = () => {
 
   return (
     <div className="w-full min-h-screen relative flex flex-col items-center py-10 sm:py-20 my-10 sm:my-20 overflow-hidden bg-white">
-      {/* Background Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-100 bg-[url('/assets/graphs/grid.svg')] bg-contain bg-center" />
+      {/* Background Grid with subtle drift */}
+      <motion.div
+        animate={{
+          y: [0, -15, 0],
+          x: [0, -8, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute inset-0 pointer-events-none opacity-100 bg-[url('/assets/graphs/grid.svg')] bg-contain bg-center"
+      />
 
       {/* Title Section */}
       <div className="z-40 mb-10 md:mb-20">
