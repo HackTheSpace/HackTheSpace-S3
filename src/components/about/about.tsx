@@ -38,14 +38,27 @@ const About = () => {
       </motion.div>
 
       {/* Background Tunnel (Overlapping top & bottom by ~40%) */}
-      <div className="relative z-0 w-full flex justify-center opacity-60 pointer-events-none -my-[40%] lg:-my-[400px]">
+      <div className="relative z-0 w-full flex justify-center opacity-70 pointer-events-none -my-[40%] lg:-my-[400px]">
+        <motion.div
+          animate={{
+            y: [-15, 15, -15],
+            scale: [0.99, 1.02, 0.99],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="w-11/12 sm:w-4/5 md:w-3/4 lg:w-[1000px] flex justify-center origin-center"
+        >
           <Image
             src="/assets/graphs/tunnel.svg"
             alt="tunnel background"
             width={1000}
             height={1000}
-          className="w-11/12 sm:w-4/5 md:w-3/4 lg:w-[1000px] h-auto"
+            className="w-full h-auto"
           />
+        </motion.div>
       </div>
 
       {/* Content 2 */}
@@ -61,14 +74,17 @@ const About = () => {
           preTitle="What Is"
           content={
             <>
-              <span className="font-bold">HackTheSpace</span> is a 24-hour offline hackathon where you go
-              from idea to prototype - <span className="font-bold italic">FAST</span>. Every season, students and
-              early-career builders come together on a shared physical stage to
-              tackle real problems, explore emerging technologies, and ship
-              something they're genuinely proud of. No gatekeeping, no fluff,
-              just you, your team, and 24 hours to build something that matters.
-              Whether it's your first hackathon or your tenth, <span className="font-bold">HackTheSpace</span> is where you
-              show up, level up, and make your <span className="font-bold italic">mark</span>.
+              <span className="font-bold">HackTheSpace</span> is a 24-hour
+              offline hackathon where you go from idea to prototype -{" "}
+              <span className="font-bold italic">FAST</span>. Every season,
+              students and early-career builders come together on a shared
+              physical stage to tackle real problems, explore emerging
+              technologies, and ship something they're genuinely proud of. No
+              gatekeeping, no fluff, just you, your team, and 24 hours to build
+              something that matters. Whether it's your first hackathon or your
+              tenth, <span className="font-bold">HackTheSpace</span> is where
+              you show up, level up, and make your{" "}
+              <span className="font-bold italic">mark</span>.
             </>
           }
         />
@@ -76,7 +92,6 @@ const About = () => {
           <motion.div
             animate={{
               y: [0, -12, 0],
-              rotate: [0, 1.5, 0, -1.5, 0],
               scale: [1, 1.02, 1],
               filter: [
                 "drop-shadow(0 4px 12px rgba(31, 188, 215, 0.4))",
