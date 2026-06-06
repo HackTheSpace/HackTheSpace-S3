@@ -277,7 +277,7 @@ export default function Scene() {
           href="https://www.google.com/maps/place/K.+J.+Somaiya+College+of+Engineering/@19.0728521,72.8973513,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c627a20bcaa9:0xb2fd3bcfeac0052a!8m2!3d19.072847!4d72.8999262!16zL20vMDYzenNf?entry=ttu&g_ep=EgoyMDI2MDUyNS4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute w-max z-21 bottom-20 sm:bottom-20 left-0 right-0 mx-auto md:right-auto md:mx-0 md:bottom-40 md:left-24 lg:left-40 xl:left-56"
+          className="absolute w-max z-21 bottom-26 sm:bottom-20 left-0 right-0 mx-auto md:right-auto md:mx-0 md:bottom-50 md:left-24 lg:left-40 xl:left-56"
           style={{ animation: "bounce-btn 2.6s ease-in-out 0.8s infinite" }}
         >
           <GlassCard
@@ -424,7 +424,7 @@ export default function Scene() {
               width: isHovered ? 96 : 64,
               height: isHovered ? 96 : 64,
             }}
-            className="absolute rounded-full border border-white/35 bg-white/10 backdrop-blur-[6px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),_0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out"
+            className="absolute rounded-full border border-white/35 bg-white/10 shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),_0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out"
           />
 
           {/* Inner Core Dot with brand gradient glow */}

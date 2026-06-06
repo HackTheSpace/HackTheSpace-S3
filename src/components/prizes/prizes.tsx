@@ -45,7 +45,7 @@ const PrizeCard = ({
         <p className="text-[7px] sm:text-[10px] md:text-xs font-semibold text-gray-600 uppercase tracking-tighter sm:tracking-wider mb-0 sm:mb-1 leading-none sm:leading-normal">
           {place}
         </p>
-        <h3 className="text-[10px] sm:text-lg md:text-xl lg:text-2xl font-bold text-black font-ruigslay leading-tight sm:leading-normal">
+        <h3 className="text-[10px] sm:text-lg md:text-xl lg:text-2xl font-bold text-black font-poppins leading-tight sm:leading-normal">
           {amount}
         </h3>
       </div>

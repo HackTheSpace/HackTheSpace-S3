@@ -73,13 +73,32 @@ const About = () => {
           }
         />
         <div className="w-full flex justify-center">
-          <Image
-            src="/assets/graphs/box-circle.svg"
-            alt="box circle"
-            width={500}
-            height={500}
-            className="w-4/5 sm:w-2/3 md:w-1/2 lg:w-[500px] h-auto"
-          />
+          <motion.div
+            animate={{
+              y: [0, -12, 0],
+              rotate: [0, 1.5, 0, -1.5, 0],
+              scale: [1, 1.02, 1],
+              filter: [
+                "drop-shadow(0 4px 12px rgba(31, 188, 215, 0.4))",
+                "drop-shadow(0 4px 20px rgba(254, 92, 54, 0.55))",
+                "drop-shadow(0 4px 12px rgba(31, 188, 215, 0.4))",
+              ],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="w-4/5 sm:w-2/3 md:w-1/2 lg:w-[500px] flex justify-center"
+          >
+            <Image
+              src="/assets/graphs/box-circle.svg"
+              alt="box circle"
+              width={500}
+              height={500}
+              className="w-full h-auto"
+            />
+          </motion.div>
         </div>
       </motion.div>
     </div>
