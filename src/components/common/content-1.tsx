@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "./title";
 
-const Content1 = ({title, preTitle, content}: {title: string, preTitle: string, content: string}) => {
+const Content1 = ({title, preTitle, content}: {title: string, preTitle: string, content: React.ReactNode}) => {
   return (
     <div className="relative w-full min-h-[50vh] flex flex-col items-center justify-center p-8  overflow-hidden">
       <div className="z-10 flex flex-col items-center gap-10 text-center max-w-6xl mx-auto">
