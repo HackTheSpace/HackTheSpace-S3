@@ -5,9 +5,9 @@ import Scene from "@/components/scenes/Scene1";
 export default function Home() {
   return (
     <>
-      {/* <Hero/> */}
+      <Hero/>
       {/* <Scene /> */}
-      <Design1 />
+      {/* <Design1 /> */}
     </>
   );
 }
