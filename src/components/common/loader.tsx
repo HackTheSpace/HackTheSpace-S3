@@ -40,7 +40,7 @@ export default function Loader({ onComplete }: LoaderProps) {
 
   // Handle the 5-second loading countdown
   useEffect(() => {
-    const duration = 4800; // Complete loading slightly before 5 seconds for transition cushion
+    const duration = 3000; // Complete loading slightly before 5 seconds for transition cushion
     const startTime = performance.now();
 
     const updateProgress = (now: number) => {
